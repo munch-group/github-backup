@@ -8,7 +8,7 @@ gh repo list $1 --limit 4000 | while read -r repo _; do
 	if ! [ -d $repo ] ; then
 		gh repo clone "$repo" "$repo" 
 	else
-		git -C "$repo" pull
+		git -C "$repo" pull --rebase
 	fi
 done
 
